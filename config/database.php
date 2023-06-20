@@ -16,6 +16,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION_SECOND', 'sqlsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -79,15 +80,20 @@ return [
         ],
 
         'sqlsrv' => [
-            'driver' => 'sqlsrv',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '1436'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'driver' => 'DB_CONNECTION_SECOND',
+            'url' => env('DATABASE_URL_SECOND'),
+            'host' => env('DB_HOST_SECOND', 'uat.ifca.co.id'),
+            'port' => env('DB_PORT_SECOND', '1436'),
+            'database' => env('DB_DATABASE_SECOND', 'IFCADEV_PBI_Residence'),
+            'username' => env('DB_USERNAME_SECOND', 'mgr'),
+            'password' => env('DB_PASSWORD_SECOND', 'mgr'),
             'charset' => 'utf8',
             'prefix' => '',
+            'options'=>[
+                'options' =>['ApplicationIntent' => 'ReadOnly'],
+                'prefix' => '',
+                'schema'=>'mgr',
+            ],
             'prefix_indexes' => true,
         ],
 

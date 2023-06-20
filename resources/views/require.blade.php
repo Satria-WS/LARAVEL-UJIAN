@@ -30,15 +30,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dtx_tes as $key)
-                            <tr>
-                                <th scope="row">{{ $key->rowID }}</th>
-                                <td>{{ $key->news_title }}</td>
-                                <td>&nbsp;</td>
-                                <td>{{ $key->date_created }}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
+    @foreach ($dtx_tes as $item)
+    <tr>
+        <th scope="row">{{ $item['rowID'] }}</th>
+        <td>{{ $item['news_title'] }}</td>
+        <td>&nbsp;</td>
+        <td>{{ $item['date_created'] }}</td>
+    </tr>
+    @endforeach
+</tbody>
                     </table>
                 </div>
             </div>

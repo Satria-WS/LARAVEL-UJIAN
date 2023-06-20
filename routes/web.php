@@ -6,6 +6,8 @@ use App\Http\Controllers\MigrateController as Migrate;
 use App\Http\Controllers\StorageController as Storage;
 use App\Http\Controllers\PHP\Laravel\ComposerController;
 
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +45,6 @@ Route::get('/soal2','App\Http\Controllers\MiddlewareController@models');
 Route::get('/soal3','App\Http\Controllers\MigrateController@seeder');
 Route::get('/soal4','App\Http\Controllers\StorageController@config');
 Route::get('/soal5','App\Http\Controllers\PHP\Laravel\ComposerController@require');
+
+// productController
+Route::get("list",[ProductController::class,"list"]);
