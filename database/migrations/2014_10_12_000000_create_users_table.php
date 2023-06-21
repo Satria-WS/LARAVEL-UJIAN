@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             // $table->rememberToken();
             // $table->timestamps();
 
-            $table->increments('rowID');
+            $table->integer('rowID')->autoIncrement();
             $table->string("email",60);
             $table->string("password",60);
             $table->string("username",50);
