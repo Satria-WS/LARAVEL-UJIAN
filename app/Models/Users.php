@@ -11,6 +11,7 @@ class Users extends Model
     use HasFactory , HasApiTokens;
 
     protected $table = "users";
+    protected $primaryKey ="rowID";
     protected $fillable = [
         "email",
         "password",

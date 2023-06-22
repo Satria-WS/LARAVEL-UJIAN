@@ -98,7 +98,8 @@ public function updateUsers(Request $request, $id) {
     if (Users::where("rowID", $id)->exists()) {
 
 
-        $user = Users::find($id);
+        // $user = Users::find($id);
+        $user = Users::where('rowID', $id)->first();
 
         $user->email = !empty($request->email) ? $request->email : $user->email;
         $user->password = !empty($request->password) ? $request->password : $user->password;
@@ -126,7 +127,20 @@ public function updateUsers(Request $request, $id) {
     // DELETE API - DELETE
     //http://127.0.0.1:8000/api/delete-User/{id}
 public function deleteUsers($id) {
-
+    if(Users::where("rowID",$id) ->exists()) {
+        // $user = Users::find($id);
+        $user = Users::where('rowID', $id)->first();
+        $user->delete();
+        return response()->json([
+            "status" => 1,
+            "message" => "User deleted succesfully"
+        ]);
+    } else {
+        return response()->json([
+            "status" => 0,
+            "message" => "User not found"
+        ],404);
+    }
 }
 
 

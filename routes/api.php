@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\UsersController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get("list-Users", [UsersController::class, "listUsers"]);
 Route::get("single-user/{id}", [UsersController::class, "getSingleUser"]);
 Route::post("add-user", [UsersController::class, "createUsers"]);
-Route::post("update-User/{id}", [UsersController::class, "updateUsers"]);
+Route::put("update-User/{id}", [UsersController::class, "updateUsers"]);
 Route::delete("delete-User/{id}", [UsersController::class, "deleteUsers"]);
